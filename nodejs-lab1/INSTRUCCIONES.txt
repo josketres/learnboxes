@@ -1,0 +1,44 @@
+Objetivo: Crear un servidor web simple que responda "Hola Mundo" utilizando Node.
+
+Pre-requisitos: Instalar VirtualBox, Vagrant y Putty
+
+Instrucciones:
+
+1. Abrir la linea de comandos.
+2. cd nodejs-lab1/box
+3. vagrant up
+4. Conectarse a la maquina virtual via ssh utilizando putty. 
+   vagrant@localhost 
+   puerto 22 
+   password: vagrant
+5. Una vez en la maquina virtual:
+6. mkdir server
+7. cd server
+8. 
+
+
+
+AN EXAMPLE: WEBSERVER
+
+This simple web server written in Node responds with "Hello World" for every request.
+
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+    }).listen(1337, '127.0.0.1');
+    console.log('Server running at http://127.0.0.1:1337/');
+    To run the server, put the code into a file example.js and execute it with the node program from the command line:
+
+    % node example.js
+    Server running at http://127.0.0.1:1337/
+    Here is an example of a simple TCP server which listens on port 1337 and echoes whatever you send it:
+
+    var net = require('net');
+
+    var server = net.createServer(function (socket) {
+      socket.write('Echo server\r\n');
+        socket.pipe(socket);
+	});
+
+	server.listen(1337, '127.0.0.1');
